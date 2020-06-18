@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>praticando com ações e eventos</title>
+    <style>
+        h1{
+            color: black;
+            text-align: center;
+            background: white; /* pinta de uma determinada cor o fundo o elemento*/
+            border-radius: 15px; /*Arredonda a borda do elemento*/
+            padding: 25px; /*Aumenta o recuo do texto dentro do elemento*/
+            width: 600px; /* define a largura do elemento*/
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /*Aqui se estiliza  sombra de determinado elemento.*/
+
+        }
+        body{
+            background-color: rgb(57, 57, 212);
+            font: normal 20pt Arial;
+            color: whitesmoke;
+            text-align: center;
+        }
+        div#res{
+            margin-top: 20px;
+        }
+        nav{
+        background: white; /* pinta de uma determinada cor o fundo o elemento*/
+        border-radius: 15px; /*Arredonda a borda do elemento*/
+        padding: 25px; /*Aumenta o recuo do texto dentro do elemento*/
+        width: 700px; /* define a largura do elemento*/
+        margin: auto;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.39); /*Aqui se estiliza  sombra de determinado elemento.*/
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Operações basicas!</h1>
+   
+    <p>Digite dois números e escolha uma operação.</p>
+    
+    <nav>
+        <input type='number' id='texto1'> 
+        <input type='number' id='texto2'>
+        <input type="button" value="Adição" onclick="soma()">
+        <input type='button' value='Subtração' onclick='subtracao()'>
+        <input type='button' value='Divisão' onclick="divisão()">
+        <input type='button' value='Multiplicação' onclick="mult()">
+    </nav>
+    <div id='res'>O resultado é: </div>
+    <div id='divisor'></div>
+    
+    <script>
+        function soma(){
+            var caixa1 = document.querySelector('input#texto1');
+            var caixa2 = document.querySelector('input#texto2');
+            var nu1 = Number.parseFloat(caixa1.value);
+            var nu2 = Number.parseFloat(caixa2.value);
+            var adição = nu1 + nu2;
+            var result = document.querySelector('div#res');
+            result.innerText=`A soma entre ${nu1} e ${nu2} é ${adição}`;
+            divisor.innerHTML='';
+
+        }
+        function divisão(){
+            caixa1 = document.querySelector('input#texto1');
+            caixa2 = document.querySelector('input#texto2');
+            nu1 = Number(caixa1.value);
+            nu2 = Number(caixa2.value);
+            divi = nu1 / nu2;
+            resto = nu1 % nu2;
+            resultado = document.querySelector('div#res');
+            resultado.innerHTML = `O quociente entre ${nu1} e ${nu2} é  ${divi}; <br> E o resto é ${resto}.`;
+            //testtando o git, vscode no fedora!!
+                if (resto == 0){
+                    divisor =  document.querySelector('div#divisor');
+                    divisor.innerHTML = `<p>Portanto, ${nu2} é um divisor de ${nu1}.</p>`;
+
+                } else{
+                    divisor.innerHTML = `<p>Portanto, ${nu2} não é um divisor de ${nu1}.</p>`;
+            
+        }
+        }
+        function subtracao(){
+            caixa1 = document.querySelector('input#texto1');
+            caixa2 = document.querySelector('input#texto2');
+            nu1 = Number(caixa1.value);
+            nu2 = Number(caixa2.value);
+            sub = nu1 - nu2;
+            resultado = document.querySelector('div#res');
+            resultado.innerHTML = `A diferença entre ${nu1} e ${nu2} é ${sub}.`;
+            divisor.innerHTML='';
+        }
+        function mult(){
+            txt1 = document.querySelector('input#texto1');
+            txt2 = document.querySelector('input#texto2');
+            nu1 = Number(txt1.value);
+            nu2 = Number(txt2.value);
+            produto = nu1 * nu2;
+            resultado = document.querySelector('div#res');
+            resultado.innerHTML = `O produto da multiplicação entre ${nu1} e ${nu2} é ${produto}.`;
+            divisor.innerHTML='';
+
+        }
+    </script>
+</body>
+</html>
